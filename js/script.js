@@ -73,9 +73,6 @@ if (animItems.length > 0) {
 /*  $('form').submit(function(e) {
 	e.preventDefault();
 
-	if (!$(this).valid()) {
-		return;
-	}
 
 	$.ajax({
 		type: "POST",
