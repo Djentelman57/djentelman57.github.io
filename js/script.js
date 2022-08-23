@@ -67,3 +67,65 @@ if (animItems.length > 0) {
         animOnScroll()
     }, 300)
 }
+
+
+
+// Валидация jquery
+
+function valideForms(form){
+	$(form).validate({
+		rules: {
+			name: {
+				required: true,
+				minlength: 2
+			},
+			phone: "required",
+			email: {
+				required: true,
+				email: true
+			}
+		},
+		messages: {
+			name: {
+				required: "Пожалуйста, введите свое имя",
+				minlength: jQuery.validator.format("Введите {0} Символа!")
+			},
+			phone: "Пожалуйста, введите свой номер телефона",
+			email: {
+			  required: "Пожалуйста, введите свою почту",
+			  email: "Неправильно введен адрес почты"
+			}
+		  }
+	});
+};
+
+valideForms('#consultation-form');
+valideForms('#consultation form');
+valideForms('#order form');
+
+$('input[name=phone]').mask("+7 (999) 999-99-99");
+
+
+
+ // скрипт майлер 
+
+ $('form').submit(function(e) {
+	e.preventDefault();
+
+	/* if (!$(this).valid()) {
+		return;
+	} */
+
+	$.ajax({
+		type: "POST",
+		url: "mailer/smart.php",
+		data: $(this).serialize()
+	}).done(function() {
+		$(this).find("input").val("");
+		$('#consultation, #order').fadeOut();
+		$('.overlay, #thanks').fadeIn('slow');
+
+		$('form').trigger('reset');
+	});
+	return false;
+});
