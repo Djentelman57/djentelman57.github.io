@@ -70,7 +70,7 @@ if (animItems.length > 0) {
 
  // скрипт майлер 
 
- /* $('form').submit(function(e) {
+ $('form').submit(function(e) {
 	e.preventDefault();
 
 	if (!$(this).valid()) {
@@ -89,4 +89,4 @@ if (animItems.length > 0) {
 		$('form').trigger('reset');
 	});
 	return false;
-}); */
+});
