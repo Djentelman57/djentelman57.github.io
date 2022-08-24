@@ -73,6 +73,9 @@ if (animItems.length > 0) {
 /*  $('form').submit(function(e) {
 	e.preventDefault();
 
+	if (!$(this).valid()) {
+		return;
+	}
 
 	$.ajax({
 		type: "POST",
@@ -112,12 +115,22 @@ document.getElementById('tg').addEventListener('submit', function(e) {
 		this.email.value = "";
 		this.text.value = "";
 		success.innerHTML = "сообщение отправлено!";
-		success.style.display = "block";
+		success.classList.add("_visible");
 	})
 	.catch((err) => {
 		console.warn(err);
 	})
 	.finally(() => {
-		console.log('Конец');
+		setTimeout(() => {
+			success.classList.remove("_visible");
+		  }, 4000)
 	})
 })
+
+/* document.querySelector('#clicker').addEventListener('click', function() {
+	var elementSuccess = document.getElementById('success');
+	
+	if (elementSuccess.classList.contains("hidden")) {
+	  elementSuccess.classList.add("hidden");
+	}
+  }) */
