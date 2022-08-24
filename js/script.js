@@ -114,7 +114,7 @@ document.getElementById('tg').addEventListener('submit', function(e) {
 		this.name.value = "";
 		this.email.value = "";
 		this.text.value = "";
-		success.innerHTML = "сообщение отправлено!";
+		/* success.innerHTML = "сообщение отправлено!"; */
 		success.classList.add("_visible");
 	})
 	.catch((err) => {
@@ -123,7 +123,7 @@ document.getElementById('tg').addEventListener('submit', function(e) {
 	.finally(() => {
 		setTimeout(() => {
 			success.classList.remove("_visible");
-		  }, 4000)
+		  }, 3000)
 	})
 })
 
