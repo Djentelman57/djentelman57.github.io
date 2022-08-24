@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 document.addEventListener('DOMContentLoaded', function () {
 	// конечная дата
-	const deadline = new Date("August 30, 2022 00:00:00").getTime();
+	const deadline = new Date("September 30, 2022 00:00:00").getTime();
 	// id таймера
 	let timerId = null;
 	// склонение числительных
